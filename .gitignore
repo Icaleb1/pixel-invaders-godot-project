@@ -1,6 +1,9 @@
+<<<<<<< HEAD
 # Godot 4.2+ specific ignores
 ~*.dll
 
+=======
+>>>>>>> ef8d673dc84bbacb1b6ae3f0d2dbd735e6ff749e
 # Godot 4+ specific ignores
 .godot/
 .nomedia
