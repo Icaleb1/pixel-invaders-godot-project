@@ -4,6 +4,8 @@ const	PRE_LASER = preload("res://scenes/laser.tscn")
 
 var speed:int = 60
 
+@onready var sound_shoot:AudioStreamPlayer = $ShootSound
+
 func _ready() -> void:
 	pass 
 	
@@ -18,6 +20,7 @@ func _process(delta: float) -> void:
 		
 	#Sistema de tiro simples
 	if Input.is_action_just_pressed("shoot"):
+		sound_shoot.play()
 		simple_shoot() 
 	
 	global_position.y = clamp(global_position.y, 13,125)

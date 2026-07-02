@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://du14fryggvfte" path="res://scripts/alien_1.gd" id="1_ipvvo"]
 [ext_resource type="Texture2D" uid="uid://8frydxmel08x" path="res://assets/evil_1.png" id="2_v4yy4"]
+[ext_resource type="AudioStream" uid="uid://clduaj8knsdts" path="res://assets/sound/explosion.ogg" id="3_iohf5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_b1m12"]
 atlas = ExtResource("2_v4yy4")
@@ -59,7 +60,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uyfb6"]
-size = Vector2(16, 12)
+size = Vector2(18, 14)
 
 [node name="Alien_1" type="Node2D" unique_id=620450128]
 script = ExtResource("1_ipvvo")
@@ -74,5 +75,8 @@ autoplay = "run"
 
 [node name="Collision" type="CollisionShape2D" parent="HitBox" unique_id=1715711458]
 shape = SubResource("RectangleShape2D_uyfb6")
+
+[node name="SoundDead" type="AudioStreamPlayer" parent="." unique_id=962090995]
+stream = ExtResource("3_iohf5")
 
 [connection signal="area_entered" from="HitBox" to="." method="_on_area_entered"]
