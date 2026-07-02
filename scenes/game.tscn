@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://hgek8s5g1yx6" path="res://scripts/ship.gd" id="1_lnu2h"]
 [ext_resource type="Texture2D" uid="uid://csdvrf5wpf6g7" path="res://assets/ship_1.png" id="1_yqjtg"]
 [ext_resource type="Texture2D" uid="uid://7kvu3nmxp1p4" path="res://assets/montaim.png" id="2_lnu2h"]
+[ext_resource type="PackedScene" uid="uid://5r554vqig4j3" path="res://scenes/alien_1.tscn" id="4_lbhrr"]
 
 [node name="Game" type="Node2D" unique_id=314854347]
 
@@ -30,3 +31,12 @@ offset_top = 53.0
 offset_right = 288.0
 offset_bottom = 162.0
 texture = ExtResource("2_lnu2h")
+
+[node name="Alien_1" parent="." unique_id=620450128 instance=ExtResource("4_lbhrr")]
+position = Vector2(283, 35)
+
+[node name="Alien_2" parent="." unique_id=745710433 instance=ExtResource("4_lbhrr")]
+position = Vector2(459, 84)
+
+[node name="Alien_3" parent="." unique_id=606891485 instance=ExtResource("4_lbhrr")]
+position = Vector2(389, 25)

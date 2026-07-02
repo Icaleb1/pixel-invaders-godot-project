@@ -1,0 +1,78 @@
+[gd_scene format=3 uid="uid://5r554vqig4j3"]
+
+[ext_resource type="Script" uid="uid://du14fryggvfte" path="res://scripts/alien_1.gd" id="1_ipvvo"]
+[ext_resource type="Texture2D" uid="uid://8frydxmel08x" path="res://assets/evil_1.png" id="2_v4yy4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b1m12"]
+atlas = ExtResource("2_v4yy4")
+region = Rect2(0, 40, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f35yu"]
+atlas = ExtResource("2_v4yy4")
+region = Rect2(40, 40, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_arj7w"]
+atlas = ExtResource("2_v4yy4")
+region = Rect2(80, 40, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bni6p"]
+atlas = ExtResource("2_v4yy4")
+region = Rect2(0, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7letq"]
+atlas = ExtResource("2_v4yy4")
+region = Rect2(40, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mk07y"]
+atlas = ExtResource("2_v4yy4")
+region = Rect2(80, 0, 40, 40)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_n3wsx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b1m12")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f35yu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_arj7w")
+}],
+"loop": false,
+"name": &"dead",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bni6p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7letq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mk07y")
+}],
+"loop": true,
+"name": &"run",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uyfb6"]
+size = Vector2(16, 12)
+
+[node name="Alien_1" type="Node2D" unique_id=620450128]
+script = ExtResource("1_ipvvo")
+
+[node name="Anim" type="AnimatedSprite2D" parent="." unique_id=1072114768]
+position = Vector2(4, -2)
+sprite_frames = SubResource("SpriteFrames_n3wsx")
+animation = &"run"
+autoplay = "run"
+
+[node name="HitBox" type="Area2D" parent="." unique_id=963135450]
+
+[node name="Collision" type="CollisionShape2D" parent="HitBox" unique_id=1715711458]
+shape = SubResource("RectangleShape2D_uyfb6")
+
+[connection signal="area_entered" from="HitBox" to="." method="_on_area_entered"]
