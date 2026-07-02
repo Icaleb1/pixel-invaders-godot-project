@@ -10,3 +10,11 @@ func _process(delta: float) -> void:
 	
 	if global_position.x > 300:
 		queue_free()
+
+
+func _on_area_entered(_area: Area2D) -> void:
+	vel = 0
+	kill()
+	
+func kill() -> void:
+	queue_free()
