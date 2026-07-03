@@ -2,15 +2,13 @@
 
 [ext_resource type="FontFile" uid="uid://c5xl8of54xnwo" path="res://assets/font/visitor1.ttf" id="1_gee14"]
 [ext_resource type="Script" uid="uid://dwsurm7h6k5ch" path="res://scripts/lifes.gd" id="1_kvpfn"]
-[ext_resource type="Script" uid="uid://hgek8s5g1yx6" path="res://scripts/ship.gd" id="1_lnu2h"]
-[ext_resource type="Texture2D" uid="uid://csdvrf5wpf6g7" path="res://assets/ship_1.png" id="1_yqjtg"]
 [ext_resource type="Texture2D" uid="uid://04t4a7a3yqpd" path="res://assets/missile_icon.png" id="2_0tnpc"]
 [ext_resource type="Texture2D" uid="uid://7kvu3nmxp1p4" path="res://assets/montaim.png" id="2_lnu2h"]
-[ext_resource type="AudioStream" uid="uid://c3knc7xxdi3tp" path="res://assets/sound/efx_shot.mp3" id="3_iywne"]
 [ext_resource type="Script" uid="uid://c8os1ladhrpko" path="res://scripts/missile_label.gd" id="3_kvpfn"]
 [ext_resource type="Texture2D" uid="uid://dq28ie5bqxsm4" path="res://assets/life_icon.png" id="3_vtaks"]
 [ext_resource type="Script" uid="uid://4lk7qhl5430d" path="res://scripts/spawn_enemy.gd" id="4_lbhrr"]
 [ext_resource type="Script" uid="uid://cmtrcrt607b0w" path="res://scripts/score_label.gd" id="5_dinhu"]
+[ext_resource type="PackedScene" uid="uid://dwuklt61df5ft" path="res://scenes/ship.tscn" id="7_0tnpc"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_kvpfn"]
 font = ExtResource("1_gee14")
@@ -25,14 +23,14 @@ font_color = Color(0.12156863, 0.0627451, 0.16470589, 1)
 position = Vector2(7, 3)
 script = ExtResource("1_kvpfn")
 
-[node name="Live_1" type="TextureRect" parent="Hud/Lifes" unique_id=1434022110]
+[node name="Life_1" type="TextureRect" parent="Hud/Lifes" unique_id=1434022110]
 offset_right = 22.0
 offset_bottom = 21.0
 texture = ExtResource("3_vtaks")
 expand_mode = 3
 stretch_mode = 3
 
-[node name="Live_2" type="TextureRect" parent="Hud/Lifes" unique_id=676097140]
+[node name="Life_2" type="TextureRect" parent="Hud/Lifes" unique_id=676097140]
 offset_left = 18.0
 offset_right = 40.0
 offset_bottom = 21.0
@@ -40,7 +38,7 @@ texture = ExtResource("3_vtaks")
 expand_mode = 3
 stretch_mode = 3
 
-[node name="Live_3" type="TextureRect" parent="Hud/Lifes" unique_id=733913216]
+[node name="Life_3" type="TextureRect" parent="Hud/Lifes" unique_id=733913216]
 offset_left = 36.0
 offset_right = 58.0
 offset_bottom = 21.0
@@ -76,18 +74,8 @@ offset_right = 301.0
 offset_bottom = 172.0
 color = Color(0.45490196, 0.6509804, 0.5058824, 1)
 
-[node name="Ship" type="Node2D" parent="." unique_id=1036507445]
-position = Vector2(39, 76)
-script = ExtResource("1_lnu2h")
-metadata/_edit_group_ = true
-
-[node name="Sprite2D" type="Sprite2D" parent="Ship" unique_id=1164470774]
-texture_filter = 1
-texture = ExtResource("1_yqjtg")
-hframes = 3
-
-[node name="ShootSound" type="AudioStreamPlayer" parent="Ship" unique_id=798105155]
-stream = ExtResource("3_iywne")
+[node name="Ship" parent="." unique_id=1179350952 instance=ExtResource("7_0tnpc")]
+position = Vector2(26, 62)
 
 [node name="Montaim" type="TextureRect" parent="." unique_id=1127949353]
 texture_filter = 1
@@ -98,6 +86,7 @@ offset_bottom = 162.0
 texture = ExtResource("2_lnu2h")
 
 [node name="SpawnEnemy" type="Node2D" parent="." unique_id=554334970]
+position = Vector2(0, -1)
 script = ExtResource("4_lbhrr")
 
 [node name="Timer" type="Timer" parent="SpawnEnemy" unique_id=1615116266]

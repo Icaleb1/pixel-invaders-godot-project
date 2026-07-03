@@ -4,10 +4,7 @@ const PRE_ALIEN = preload("res://scenes/alien_1.tscn")
 
 func _ready() -> void:
 	start_timer()
-
-
-
-
+	
 func _on_timer_timeout() -> void:
 	var alien_clone = PRE_ALIEN.instantiate()
 	get_parent().add_child(alien_clone)

@@ -15,7 +15,7 @@ func _on_area_entered(_area) -> void:
 	vel = 0
 	animation.play("dead")
 	sound_dead.play()
-	await animation.animation_finished	
+	await animation.animation_finished
 	kill()
 	
 		

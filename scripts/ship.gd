@@ -30,3 +30,11 @@ func simple_shoot() -> void:
 	var laser_clone = PRE_LASER.instantiate()
 	get_parent().add_child(laser_clone)
 	laser_clone.global_position = global_position + Vector2(20,2 )
+
+func damage(_value:int) -> void:
+	pass
+
+func _on_body_area_entered(_area) -> void:
+	GameControl.lifes -= 1
+	#get_tree().reload_current_scene()
+	
