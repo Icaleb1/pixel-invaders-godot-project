@@ -11,7 +11,6 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	translate(Vector2(-1,0) * vel * delta)
 
-
 func _on_area_entered(_area) -> void:
 	vel = 0
 	animation.play("dead")
@@ -21,4 +20,5 @@ func _on_area_entered(_area) -> void:
 	
 		
 func kill() -> void:
+	GameControl.score += 25
 	queue_free()

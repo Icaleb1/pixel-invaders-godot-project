@@ -11,7 +11,7 @@ func _ready() -> void:
 func _on_timer_timeout() -> void:
 	var alien_clone = PRE_ALIEN.instantiate()
 	get_parent().add_child(alien_clone)
-	alien_clone.global_position = Vector2(360,randi_range(20,120))
+	alien_clone.global_position = Vector2(360,randi_range(40,120))
 	start_timer()
 
 func start_timer() -> void:

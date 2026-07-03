@@ -14,6 +14,10 @@ config/name="Pixel Invaders"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://scenes/icon.svg"
 
+[autoload]
+
+GameControl="*uid://wu81jc0v7kto"
+
 [display]
 
 window/size/viewport_width=288

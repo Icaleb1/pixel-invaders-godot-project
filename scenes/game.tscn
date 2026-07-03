@@ -1,12 +1,73 @@
 [gd_scene format=3 uid="uid://qimms6s87v86"]
 
+[ext_resource type="FontFile" uid="uid://c5xl8of54xnwo" path="res://assets/font/visitor1.ttf" id="1_gee14"]
+[ext_resource type="Script" uid="uid://dwsurm7h6k5ch" path="res://scripts/lifes.gd" id="1_kvpfn"]
 [ext_resource type="Script" uid="uid://hgek8s5g1yx6" path="res://scripts/ship.gd" id="1_lnu2h"]
 [ext_resource type="Texture2D" uid="uid://csdvrf5wpf6g7" path="res://assets/ship_1.png" id="1_yqjtg"]
+[ext_resource type="Texture2D" uid="uid://04t4a7a3yqpd" path="res://assets/missile_icon.png" id="2_0tnpc"]
 [ext_resource type="Texture2D" uid="uid://7kvu3nmxp1p4" path="res://assets/montaim.png" id="2_lnu2h"]
 [ext_resource type="AudioStream" uid="uid://c3knc7xxdi3tp" path="res://assets/sound/efx_shot.mp3" id="3_iywne"]
+[ext_resource type="Script" uid="uid://c8os1ladhrpko" path="res://scripts/missile_label.gd" id="3_kvpfn"]
+[ext_resource type="Texture2D" uid="uid://dq28ie5bqxsm4" path="res://assets/life_icon.png" id="3_vtaks"]
 [ext_resource type="Script" uid="uid://4lk7qhl5430d" path="res://scripts/spawn_enemy.gd" id="4_lbhrr"]
+[ext_resource type="Script" uid="uid://cmtrcrt607b0w" path="res://scripts/score_label.gd" id="5_dinhu"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_kvpfn"]
+font = ExtResource("1_gee14")
+font_size = 28
+font_color = Color(0.12156863, 0.0627451, 0.16470589, 1)
 
 [node name="Game" type="Node2D" unique_id=314854347]
+
+[node name="Hud" type="CanvasLayer" parent="." unique_id=458734982]
+
+[node name="Lifes" type="Node2D" parent="Hud" unique_id=445163935]
+position = Vector2(7, 3)
+script = ExtResource("1_kvpfn")
+
+[node name="Live_1" type="TextureRect" parent="Hud/Lifes" unique_id=1434022110]
+offset_right = 22.0
+offset_bottom = 21.0
+texture = ExtResource("3_vtaks")
+expand_mode = 3
+stretch_mode = 3
+
+[node name="Live_2" type="TextureRect" parent="Hud/Lifes" unique_id=676097140]
+offset_left = 18.0
+offset_right = 40.0
+offset_bottom = 21.0
+texture = ExtResource("3_vtaks")
+expand_mode = 3
+stretch_mode = 3
+
+[node name="Live_3" type="TextureRect" parent="Hud/Lifes" unique_id=733913216]
+offset_left = 36.0
+offset_right = 58.0
+offset_bottom = 21.0
+texture = ExtResource("3_vtaks")
+expand_mode = 3
+stretch_mode = 3
+
+[node name="MissileLabel" type="Label" parent="Hud" unique_id=1389590542]
+offset_left = 132.0
+offset_right = 166.0
+offset_bottom = 26.0
+text = "02"
+label_settings = SubResource("LabelSettings_kvpfn")
+script = ExtResource("3_kvpfn")
+
+[node name="IconMissile" type="Sprite2D" parent="Hud" unique_id=2127735660]
+position = Vector2(115, 13)
+texture = ExtResource("2_0tnpc")
+
+[node name="ScoreLabel" type="Label" parent="Hud" unique_id=1250339572]
+offset_left = 208.0
+offset_right = 284.0
+offset_bottom = 26.0
+theme_override_colors/font_outline_color = Color(0.12156863, 0.0627451, 0.16470589, 1)
+text = "0"
+label_settings = SubResource("LabelSettings_kvpfn")
+script = ExtResource("5_dinhu")
 
 [node name="BackColor" type="ColorRect" parent="." unique_id=1591477088]
 offset_left = -16.0

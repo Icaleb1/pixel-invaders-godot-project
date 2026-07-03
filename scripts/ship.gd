@@ -23,7 +23,7 @@ func _process(delta: float) -> void:
 		sound_shoot.play()
 		simple_shoot() 
 	
-	global_position.y = clamp(global_position.y, 13,125)
+	global_position.y = clamp(global_position.y, 38,120)
 	translate(Vector2(0, dir_y) * speed * delta)
 	
 func simple_shoot() -> void:
