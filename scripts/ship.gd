@@ -3,13 +3,22 @@ extends Node2D
 const	PRE_LASER = preload("res://scenes/laser.tscn")
 
 var speed:int = 60
+var invencible:bool = false
+
 
 @onready var sound_shoot:AudioStreamPlayer = $ShootSound
+@onready var invencible_time:Timer = $InvencibleTime
+@onready var animation: AnimationPlayer = $Animation
 
 func _ready() -> void:
-	pass 
+	invencible_state()
 	
 func _process(delta: float) -> void:
+	if invencible == true:
+		animation.play("shield")
+	else: 
+		animation.play("idle")
+	
 	var dir_y:int = 0
 	
 	#Sistema de movimento da nave
@@ -35,6 +44,13 @@ func damage(_value:int) -> void:
 	pass
 
 func _on_body_area_entered(_area) -> void:
-	GameControl.lifes -= 1
-	#get_tree().reload_current_scene()
+	if invencible == false:
+		GameControl.lifes -= 1
+		invencible_state()
 	
+func _on_invencible_time_timeout() -> void:
+	invencible = false
+	
+func invencible_state() -> void:
+	invencible = true 
+	invencible_time.start()
