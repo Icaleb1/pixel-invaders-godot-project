@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://36husefuofak"]
+
+[ext_resource type="Script" uid="uid://dmonik32to28n" path="res://scripts/missile.gd" id="1_35udt"]
+[ext_resource type="Texture2D" uid="uid://04t4a7a3yqpd" path="res://assets/missile_icon.png" id="2_2swxv"]
+[ext_resource type="Texture2D" uid="uid://cerpi1ron5kdl" path="res://assets/particle_smoke.png" id="3_bd00w"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_trtic"]
+size = Vector2(20, 12)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ir15t"]
+particle_flag_disable_z = true
+gravity = Vector3(0, 0, 0)
+scale_min = 0.5
+scale_max = 1.5
+
+[node name="Missile" type="Area2D" unique_id=1722030971]
+collision_layer = 5
+collision_mask = 2
+script = ExtResource("1_35udt")
+
+[node name="Collision" type="CollisionShape2D" parent="." unique_id=268149451]
+shape = SubResource("RectangleShape2D_trtic")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1955714599]
+texture = ExtResource("2_2swxv")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=182568819]
+texture = ExtResource("3_bd00w")
+lifetime = 0.6
+process_material = SubResource("ParticleProcessMaterial_ir15t")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

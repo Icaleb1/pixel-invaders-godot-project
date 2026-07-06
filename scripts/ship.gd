@@ -1,6 +1,7 @@
 extends Node2D
 
 const	PRE_LASER = preload("res://scenes/laser.tscn")
+const	PRE_MISSILE = preload("res://scenes/missile.tscn")
 
 var speed:int = 60
 var invencible:bool = false
@@ -31,6 +32,9 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("shoot"):
 		sound_shoot.play()
 		simple_shoot() 
+		
+	if Input.is_action_just_pressed("Attack"):
+		special_shoot()
 	
 	global_position.y = clamp(global_position.y, 38,120)
 	translate(Vector2(0, dir_y) * speed * delta)
@@ -38,7 +42,12 @@ func _process(delta: float) -> void:
 func simple_shoot() -> void:
 	var laser_clone = PRE_LASER.instantiate()
 	get_parent().add_child(laser_clone)
-	laser_clone.global_position = global_position + Vector2(20,2 )
+	laser_clone.global_position = global_position + Vector2(20, 2)
+	
+func special_shoot() -> void:
+	var missile_clone = PRE_MISSILE.instantiate()
+	get_parent().add_child(missile_clone)
+	missile_clone.global_position = global_position + Vector2(20, 2)
 
 func damage(_value:int) -> void:
 	pass
