@@ -3,12 +3,13 @@
 [ext_resource type="FontFile" uid="uid://c5xl8of54xnwo" path="res://assets/font/visitor1.ttf" id="1_gee14"]
 [ext_resource type="Script" uid="uid://dwsurm7h6k5ch" path="res://scripts/lifes.gd" id="1_kvpfn"]
 [ext_resource type="Texture2D" uid="uid://04t4a7a3yqpd" path="res://assets/missile_icon.png" id="2_0tnpc"]
-[ext_resource type="Texture2D" uid="uid://7kvu3nmxp1p4" path="res://assets/montaim.png" id="2_lnu2h"]
 [ext_resource type="Script" uid="uid://c8os1ladhrpko" path="res://scripts/missile_label.gd" id="3_kvpfn"]
 [ext_resource type="Texture2D" uid="uid://dq28ie5bqxsm4" path="res://assets/life_icon.png" id="3_vtaks"]
 [ext_resource type="Script" uid="uid://4lk7qhl5430d" path="res://scripts/spawn_enemy.gd" id="4_lbhrr"]
 [ext_resource type="Script" uid="uid://cmtrcrt607b0w" path="res://scripts/score_label.gd" id="5_dinhu"]
 [ext_resource type="PackedScene" uid="uid://dwuklt61df5ft" path="res://scenes/ship.tscn" id="7_0tnpc"]
+[ext_resource type="Texture2D" uid="uid://cthai1fspr43p" path="res://assets/montaim_big.png" id="9_0tnpc"]
+[ext_resource type="Script" uid="uid://dn00uvs5psojr" path="res://scripts/mountain.gd" id="9_vtaks"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_kvpfn"]
 font = ExtResource("1_gee14")
@@ -77,18 +78,21 @@ color = Color(0.45490196, 0.6509804, 0.5058824, 1)
 [node name="Ship" parent="." unique_id=1179350952 instance=ExtResource("7_0tnpc")]
 position = Vector2(26, 62)
 
-[node name="Montaim" type="TextureRect" parent="." unique_id=1127949353]
-texture_filter = 1
-offset_left = 1.0
-offset_top = 53.0
-offset_right = 288.0
-offset_bottom = 162.0
-texture = ExtResource("2_lnu2h")
-
 [node name="SpawnEnemy" type="Node2D" parent="." unique_id=554334970]
 position = Vector2(0, -1)
 script = ExtResource("4_lbhrr")
 
 [node name="Timer" type="Timer" parent="SpawnEnemy" unique_id=1615116266]
+
+[node name="mountain" type="ParallaxBackground" parent="." unique_id=462271346]
+layer = 0
+script = ExtResource("9_vtaks")
+
+[node name="Layer" type="ParallaxLayer" parent="mountain" unique_id=405349834]
+motion_mirroring = Vector2(256, 0)
+
+[node name="Sprite" type="Sprite2D" parent="mountain/Layer" unique_id=1928212963]
+position = Vector2(128, 130)
+texture = ExtResource("9_0tnpc")
 
 [connection signal="timeout" from="SpawnEnemy/Timer" to="SpawnEnemy" method="_on_timer_timeout"]
