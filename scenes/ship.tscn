@@ -84,6 +84,7 @@ shape = SubResource("RectangleShape2D_4tobq")
 libraries/ = SubResource("AnimationLibrary_7j21i")
 
 [node name="InvencibleTime" type="Timer" parent="." unique_id=560962627]
+wait_time = 2.0
 one_shot = true
 
 [connection signal="area_entered" from="Body" to="." method="_on_body_area_entered"]
