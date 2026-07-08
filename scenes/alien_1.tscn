@@ -62,7 +62,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uyfb6"]
 size = Vector2(18, 14)
 
-[node name="Alien_1" type="Node2D" unique_id=620450128]
+[node name="Alien_1" type="Node2D" unique_id=620450128 groups=["enemy"]]
 script = ExtResource("1_ipvvo")
 
 [node name="Anim" type="AnimatedSprite2D" parent="." unique_id=1072114768]
@@ -71,7 +71,7 @@ sprite_frames = SubResource("SpriteFrames_n3wsx")
 animation = &"run"
 autoplay = "run"
 
-[node name="HitBox" type="Area2D" parent="." unique_id=963135450]
+[node name="HitBox" type="Area2D" parent="." unique_id=963135450 groups=["enemy"]]
 collision_layer = 2
 collision_mask = 5
 

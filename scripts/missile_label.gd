@@ -1,4 +1,4 @@
-extends Label
-	
-func _ready() -> void:
+extends Label	
+
+func _process(_delta):
 	text = str("%02d" % GameControl.missiles)

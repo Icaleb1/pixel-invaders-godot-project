@@ -15,6 +15,10 @@ func explosion_effect() -> void:
 	var explosion = PRE_EXPLOSION.instantiate()
 	explosion.global_position = global_position
 	get_parent().add_child(explosion)
-
+	   
 func kill() -> void:
 	queue_free()
+
+
+func _on_visible_screen_exited() -> void:
+	kill()

@@ -34,7 +34,8 @@ func _process(delta: float) -> void:
 		simple_shoot() 
 		
 	if Input.is_action_just_pressed("Attack"):
-		special_shoot()
+		if GameControl.missiles > 0:
+			special_shoot()
 	
 	global_position.y = clamp(global_position.y, 38,120)
 	translate(Vector2(0, dir_y) * speed * delta)
@@ -45,6 +46,7 @@ func simple_shoot() -> void:
 	laser_clone.global_position = global_position + Vector2(20, 2)
 	
 func special_shoot() -> void:
+	GameControl.missiles -= 1 
 	var missile_clone = PRE_MISSILE.instantiate()
 	get_parent().add_child(missile_clone)
 	missile_clone.global_position = global_position + Vector2(20, 2)
@@ -52,10 +54,11 @@ func special_shoot() -> void:
 func damage(_value:int) -> void:
 	pass
 
-func _on_body_area_entered(_area) -> void:
-	if invencible == false:
-		GameControl.lifes -= 1
-		invencible_state()
+func _on_body_area_entered(area) -> void:
+	if area.is_in_group("enemy"):
+		if invencible == false:
+			GameControl.lifes -= 1
+			invencible_state()
 	
 func _on_invencible_time_timeout() -> void:
 	invencible = false

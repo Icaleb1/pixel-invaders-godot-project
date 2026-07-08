@@ -1,10 +1,17 @@
 [gd_scene format=3 uid="uid://c48heum0q1rs7"]
 
+[ext_resource type="AudioStream" uid="uid://bo4bm7vwr43m7" path="res://assets/sound/explosion_missile.wav" id="1_17npe"]
+
 [sub_resource type="GDScript" id="GDScript_3oo6d"]
 script/source = "extends CPUParticles2D
 
+@onready var efx: AudioStreamPlayer = $efx
+
+
+
 func _ready() -> void:
 	emitting = true
+	efx.play()
 
 func _on_finished() -> void:
 	queue_free()
@@ -25,5 +32,8 @@ scale_amount_min = 4.0
 scale_amount_max = 8.0
 color = Color(0.12156863, 0.0627451, 0.16470589, 1)
 script = SubResource("GDScript_3oo6d")
+
+[node name="efx" type="AudioStreamPlayer" parent="." unique_id=49119461]
+stream = ExtResource("1_17npe")
 
 [connection signal="finished" from="." to="." method="_on_finished"]
