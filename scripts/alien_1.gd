@@ -9,7 +9,6 @@ var Possibility_powerup:int = 0
 
 const	PRE_POWER_UP = preload("res://scenes/power_up.tscn")
 
-
 func _ready() -> void:
 	pass 
 

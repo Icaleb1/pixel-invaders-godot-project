@@ -7,8 +7,6 @@ script/source = "extends CPUParticles2D
 
 @onready var efx: AudioStreamPlayer = $efx
 
-
-
 func _ready() -> void:
 	emitting = true
 	efx.play()

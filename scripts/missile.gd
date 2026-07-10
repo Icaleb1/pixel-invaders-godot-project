@@ -3,6 +3,9 @@ extends Area2D
 var vel:int = 150
 const	PRE_EXPLOSION = preload("res://scenes/explosion.tscn")
 
+func _ready():
+	$EfxCreated.play()
+	
 func _process(delta: float) -> void:
 	translate(Vector2(1,0) * vel * delta)
 	

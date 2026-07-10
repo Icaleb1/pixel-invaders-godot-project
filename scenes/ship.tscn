@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://hgek8s5g1yx6" path="res://scripts/ship.gd" id="1_4tobq"]
 [ext_resource type="Texture2D" uid="uid://csdvrf5wpf6g7" path="res://assets/ship_1.png" id="2_tfsc7"]
 [ext_resource type="AudioStream" uid="uid://c3knc7xxdi3tp" path="res://assets/sound/efx_shot.mp3" id="3_gudjc"]
+[ext_resource type="AudioStream" uid="uid://dqcywidtcm183" path="res://assets/sound/colect_powerup.wav" id="4_tfsc7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4tobq"]
 size = Vector2(24, 20)
@@ -72,6 +73,9 @@ hframes = 3
 
 [node name="ShootSound" type="AudioStreamPlayer" parent="." unique_id=1370024447]
 stream = ExtResource("3_gudjc")
+
+[node name="EfxPowerUp" type="AudioStreamPlayer" parent="." unique_id=1618118191]
+stream = ExtResource("4_tfsc7")
 
 [node name="Body" type="Area2D" parent="." unique_id=1211969716]
 collision_mask = 26

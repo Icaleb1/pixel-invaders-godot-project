@@ -9,7 +9,8 @@ var invencible:bool = false
 
 @onready var sound_shoot:AudioStreamPlayer = $ShootSound
 @onready var invencible_time:Timer = $InvencibleTime
-@onready var animation: AnimationPlayer = $Animation
+@onready var animation:AnimationPlayer = $Animation
+@onready var sound_powerup:AudioStreamPlayer = $EfxPowerUp
 
 func _ready() -> void:
 	invencible_state()
@@ -55,6 +56,10 @@ func damage(_value:int) -> void:
 	pass
 
 func _on_body_area_entered(area) -> void:
+	if area.is_in_group("powerup"):
+		print('teste')
+		sound_powerup.play()
+	
 	if area.is_in_group("enemy"):
 		if invencible == false:
 			GameControl.lifes -= 1

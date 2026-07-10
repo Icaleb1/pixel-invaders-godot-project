@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://dmonik32to28n" path="res://scripts/missile.gd" id="1_35udt"]
 [ext_resource type="Texture2D" uid="uid://04t4a7a3yqpd" path="res://assets/missile_icon.png" id="2_2swxv"]
 [ext_resource type="Texture2D" uid="uid://cerpi1ron5kdl" path="res://assets/particle_smoke.png" id="3_bd00w"]
+[ext_resource type="AudioStream" uid="uid://cydb3asjiggc1" path="res://assets/sound/missile.wav" id="4_2swxv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_trtic"]
 size = Vector2(20, 12)
@@ -30,6 +31,9 @@ lifetime = 0.6
 process_material = SubResource("ParticleProcessMaterial_ir15t")
 
 [node name="Visible" type="VisibleOnScreenNotifier2D" parent="." unique_id=2090086549]
+
+[node name="EfxCreated" type="AudioStreamPlayer" parent="." unique_id=1975296592]
+stream = ExtResource("4_2swxv")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="screen_exited" from="Visible" to="." method="_on_visible_screen_exited"]
