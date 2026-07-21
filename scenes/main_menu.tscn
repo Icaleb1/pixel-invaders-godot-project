@@ -1,0 +1,105 @@
+[gd_scene format=3 uid="uid://bupdfd50jlxb4"]
+
+[ext_resource type="FontFile" uid="uid://c5xl8of54xnwo" path="res://assets/font/visitor1.ttf" id="1_bqqt6"]
+[ext_resource type="Texture2D" uid="uid://ba8ckisny2sng" path="res://assets/title_ship_1.png" id="2_wu84c"]
+[ext_resource type="Texture2D" uid="uid://04t4a7a3yqpd" path="res://assets/missile_icon.png" id="3_8ln24"]
+[ext_resource type="Script" uid="uid://c5607o7lscb8q" path="res://scripts/menu.gd" id="3_wu84c"]
+[ext_resource type="AudioStream" uid="uid://dqcywidtcm183" path="res://assets/sound/colect_powerup.wav" id="5_8ln24"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_rtw2f"]
+font = ExtResource("1_bqqt6")
+font_size = 48
+font_color = Color(0.12156863, 0.0627451, 0.16470589, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_vdlqu"]
+font = ExtResource("1_bqqt6")
+font_size = 44
+font_color = Color(0.12156863, 0.0627451, 0.16470589, 1)
+
+[node name="MainMenu" type="Node2D" unique_id=470854010]
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1916813396]
+offset_right = 290.0
+offset_bottom = 165.0
+color = Color(0.45490196, 0.6509804, 0.5058824, 1)
+
+[node name="Exit2" type="Label" parent="." unique_id=587672131]
+offset_left = 48.0
+offset_top = 152.0
+offset_right = 242.0
+offset_bottom = 161.0
+theme_override_colors/font_color = Color(0.12156863, 0.0627451, 0.16470589, 1)
+theme_override_fonts/font = ExtResource("1_bqqt6")
+theme_override_font_sizes/font_size = 8
+text = "Criado por Oficina de games - 2026"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Tittle" type="Node2D" parent="." unique_id=909812922]
+metadata/_edit_group_ = true
+
+[node name="Tittle_1" type="Label" parent="Tittle" unique_id=1651162851]
+offset_left = 24.0
+offset_top = 11.0
+offset_right = 149.0
+offset_bottom = 55.0
+theme_override_font_sizes/font_size = 48
+text = "Pixel"
+label_settings = SubResource("LabelSettings_rtw2f")
+
+[node name="Tittle_2" type="Label" parent="Tittle" unique_id=1814133187]
+offset_left = 50.0
+offset_top = 45.0
+offset_right = 280.0
+offset_bottom = 89.0
+text = "Invaders"
+label_settings = SubResource("LabelSettings_vdlqu")
+
+[node name="Ship" type="Sprite2D" parent="Tittle" unique_id=353788999]
+position = Vector2(205, 32)
+scale = Vector2(2, 2)
+texture = ExtResource("2_wu84c")
+
+[node name="Menu" type="VBoxContainer" parent="." unique_id=887438299]
+offset_left = 159.0
+offset_top = 82.0
+offset_right = 257.0
+offset_bottom = 147.0
+theme_override_constants/separation = 0
+script = ExtResource("3_wu84c")
+
+[node name="Start" type="Label" parent="Menu" unique_id=1349189789]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.12156863, 0.0627451, 0.16470589, 1)
+theme_override_fonts/font = ExtResource("1_bqqt6")
+theme_override_font_sizes/font_size = 16
+text = "Jogar"
+
+[node name="Options" type="Label" parent="Menu" unique_id=1272407919]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.12156863, 0.0627451, 0.16470589, 1)
+theme_override_fonts/font = ExtResource("1_bqqt6")
+theme_override_font_sizes/font_size = 16
+text = "Configurar"
+
+[node name="Credits" type="Label" parent="Menu" unique_id=1035875002]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.12156863, 0.0627451, 0.16470589, 1)
+theme_override_fonts/font = ExtResource("1_bqqt6")
+theme_override_font_sizes/font_size = 16
+text = "Creditos"
+
+[node name="Exit" type="Label" parent="Menu" unique_id=1522807736]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.12156863, 0.0627451, 0.16470589, 1)
+theme_override_fonts/font = ExtResource("1_bqqt6")
+theme_override_font_sizes/font_size = 16
+text = "Sair"
+
+[node name="Direction" type="Sprite2D" parent="." unique_id=697382003]
+position = Vector2(146, 90)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("3_8ln24")
+
+[node name="SoundSelect" type="AudioStreamPlayer" parent="." unique_id=1009091505]
+stream = ExtResource("5_8ln24")
