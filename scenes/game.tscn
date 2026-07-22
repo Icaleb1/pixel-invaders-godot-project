@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://dwuklt61df5ft" path="res://scenes/ship.tscn" id="7_0tnpc"]
 [ext_resource type="Texture2D" uid="uid://cthai1fspr43p" path="res://assets/montaim_big.png" id="9_0tnpc"]
 [ext_resource type="Script" uid="uid://dn00uvs5psojr" path="res://scripts/mountain.gd" id="9_vtaks"]
+[ext_resource type="PackedScene" uid="uid://b8b7gs8dgxs4m" path="res://scenes/alien_2.tscn" id="11_kvpfn"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_kvpfn"]
 font = ExtResource("1_gee14")
@@ -94,5 +95,9 @@ motion_mirroring = Vector2(256, 0)
 [node name="Sprite" type="Sprite2D" parent="mountain/Layer" unique_id=1928212963]
 position = Vector2(128, 130)
 texture = ExtResource("9_0tnpc")
+
+[node name="Alien_2" parent="." unique_id=1821368855 instance=ExtResource("11_kvpfn")]
+position = Vector2(169, 90)
+scale = Vector2(1.5, 1.5)
 
 [connection signal="timeout" from="SpawnEnemy/Timer" to="SpawnEnemy" method="_on_timer_timeout"]

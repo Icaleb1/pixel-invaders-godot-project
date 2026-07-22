@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://bs6yt3rb2e1br"]
+
+[ext_resource type="Script" uid="uid://5taxwne3vbin" path="res://scripts/enemy_base.gd" id="1_fr7lv"]
+[ext_resource type="AudioStream" uid="uid://bmkyt2jclr5ln" path="res://assets/sound/simple_explosion.wav" id="2_sw0xa"]
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fr7lv"]
+
+[node name="EnemyBase" type="Node2D" unique_id=1821368855 groups=["enemy"]]
+script = ExtResource("1_fr7lv")
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=1804492780]
+
+[node name="Anim" type="AnimationPlayer" parent="." unique_id=901752384]
+libraries/ = SubResource("AnimationLibrary_fr7lv")
+
+[node name="HitBox" type="Area2D" parent="." unique_id=2088679129]
+collision_layer = 2
+collision_mask = 5
+
+[node name="Collision" type="CollisionShape2D" parent="HitBox" unique_id=626411242]
+
+[node name="Sound" type="AudioStreamPlayer" parent="." unique_id=1073161153]
+stream = ExtResource("2_sw0xa")
+
+[connection signal="area_entered" from="HitBox" to="." method="_on_hit_box_area_entered"]
