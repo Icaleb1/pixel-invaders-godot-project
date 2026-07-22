@@ -57,7 +57,6 @@ func damage(_value:int) -> void:
 
 func _on_body_area_entered(area) -> void:
 	if area.is_in_group("powerup"):
-		print('teste')
 		sound_powerup.play()
 	
 	if area.is_in_group("enemy"):
